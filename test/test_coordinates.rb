@@ -34,4 +34,32 @@ class CoordinatesTest < Minitest::Test
       coordinate_list(0, 4, ASCENDING, 4)
     )
   end
+
+  def test_generate_reverse_horizontal_list_of_coordinates
+    assert_equal(
+      [[3, 4], [2, 4], [1, 4], [0, 4]],
+      coordinate_list(3, 4, REVERSE_HORIZONTAL, 4)
+    )
+  end
+
+  def test_generate_reverse_vertical_list_of_coordinates
+    assert_equal(
+      [[4, 4], [4, 3], [4, 2], [4, 1], [4, 0]],
+      coordinate_list(4, 4, REVERSE_VERTICAL, 5)
+    )
+  end
+
+  def test_generate_reverse_descending_list_of_coordinates
+    assert_equal(
+      [[3, 3], [2, 2], [1, 1], [0, 0]],
+      coordinate_list(3, 3, REVERSE_DESCENDING, 4)
+    )
+  end
+
+  def test_generate_reverse_ascending_list_of_coordinates
+    assert_equal(
+      [[3, 1], [2, 2], [1, 3], [0, 4]],
+      coordinate_list(3, 1, REVERSE_ASCENDING, 4)
+    )
+  end
 end
