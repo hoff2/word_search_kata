@@ -26,4 +26,10 @@ class WordSearchTest < Minitest::Test
       [[0, 4], [1, 4], [2, 4], [3, 4]],
       coordinate_list(0, 4, HORIZONTAL, 4))
   end
+
+  def test_generate_vertical_list_of_coordinates
+    assert_equal(
+      [[4, 1], [4, 2], [4, 3], [4, 4]],
+      coordinate_list(4, 1, VERTICAL, 4))
+  end
 end
