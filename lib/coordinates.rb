@@ -3,6 +3,7 @@ module WordSearch
     HORIZONTAL = [1, 0]
     VERTICAL = [0, 1]
     DESCENDING = [1, 1]
+    ASCENDING = [1, -1]
 
     def coordinate_list(start_column, start_row, direction, length)
       if length == 0

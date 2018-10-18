@@ -27,4 +27,11 @@ class CoordinatesTest < Minitest::Test
       coordinate_list(0, 0, DESCENDING, 3)
     )
   end
+
+  def test_generate_ascending_horizontal_list_of_coordinates
+    assert_equal(
+      [[0, 4], [1, 3], [2, 2], [3, 1]],
+      coordinate_list(0, 4, ASCENDING, 4)
+    )
+  end
 end
