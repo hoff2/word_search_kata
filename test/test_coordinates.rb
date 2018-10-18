@@ -10,12 +10,21 @@ class CoordinatesTest < Minitest::Test
   def test_generate_horizontal_list_of_coordinates
     assert_equal(
       [[0, 4], [1, 4], [2, 4], [3, 4]],
-      coordinate_list(0, 4, HORIZONTAL, 4))
+      coordinate_list(0, 4, HORIZONTAL, 4)
+    )
   end
 
   def test_generate_vertical_list_of_coordinates
     assert_equal(
       [[4, 1], [4, 2], [4, 3], [4, 4]],
-      coordinate_list(4, 1, VERTICAL, 4))
+      coordinate_list(4, 1, VERTICAL, 4)
+    )
+  end
+
+  def test_generate_descending_horizontal_list_of_coordinates
+    assert_equal(
+      [[0, 0], [1, 1], [2, 2]],
+      coordinate_list(0, 0, DESCENDING, 3)
+    )
   end
 end
