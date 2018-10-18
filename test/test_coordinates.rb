@@ -1,12 +1,12 @@
 require './lib/coordinates.rb'
 require 'minitest/autorun'
 
+# in order to search a place in the grid for a word
+# i want to generate a list of coordinates to
+# compare to letters in the word
 class CoordinatesTest < Minitest::Test
   include WordSearch::Coordinates
 
-  # in order to search a place in the grid for a word
-  # i want to generate a list of coordinates to
-  # compare to letters in the word
   def test_generate_horizontal_list_of_coordinates
     assert_equal(
       [[0, 4], [1, 4], [2, 4], [3, 4]],
