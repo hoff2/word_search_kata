@@ -31,6 +31,7 @@ module WordSearch
         HORIZONTAL,
         VERTICAL,
         ASCENDING,
+        DESCENDING,
         REVERSE_HORIZONTAL,
         REVERSE_VERTICAL,
         REVERSE_ASCENDING,

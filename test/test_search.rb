@@ -29,16 +29,64 @@ class TestSearch < MiniTest::Test
     ))
   end
 
-  def test_can_search_whole_grid_for_word
+  def test_returns_nil_when_word_is_not_in_grid
+    assert_nil(@search.find_word('WORD'))
+  end
+
+  def test_can_find_a_vertical_word
     assert_equal(
       [[4, 0], [4, 1], [4, 2], [4, 3], [4, 4]],
       @search.find_word('EJOTY')
     )
+  end
+
+  def test_can_find_a_horizontal_word
     assert_equal(
       [[0, 3], [1, 3], [2, 3], [3, 3]],
       @search.find_word('PQRS')
     )
-    assert_nil(@search.find_word('WORD'))
+  end
+
+  def test_can_find_a_descending_word
+    assert_equal(
+      [[0, 1], [1, 2], [2, 3], [3, 4]],
+      @search.find_word('FLRX')
+    )
+  end
+
+  def test_can_find_an_ascending_word
+    assert_equal(
+      [[1, 4], [2, 3], [3, 2], [4, 1]],
+      @search.find_word('VRNJ')
+    )
+  end
+
+  def test_can_find_a_reverse_vertical_word
+    assert_equal(
+      [[4, 4], [4, 3], [4, 2], [4, 1]],
+      @search.find_word('YTOJ')
+    )
+  end
+
+  def test_can_find_a_reverse_horizontal_word
+    assert_equal(
+      [[3, 3], [2, 3], [1, 3], [0, 3]],
+      @search.find_word('SRQP')
+    )
+  end
+
+  def test_can_find_a_reverse_descending_word
+    assert_equal(
+      [[3, 4], [2, 3], [1, 2], [0, 1]],
+      @search.find_word('XRLF')
+    )
+  end
+
+  def test_can_find_a_reverse_ascending_word
+    assert_equal(
+      [[4, 1], [3, 2], [2, 3], [1, 4]],
+      @search.find_word('JNRV')
+    )
   end
 
   def test_generates_report_of_all_word_locations
