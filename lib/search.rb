@@ -4,5 +4,9 @@ module WordSearch
       @words = words
       @grid = grid
     end
+
+    def word_at_position_in_direction?(word, column, row, direction)
+      true
+    end
   end
 end
