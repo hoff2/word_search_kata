@@ -16,8 +16,28 @@ module WordSearch
       end
     end
 
+    def all_directions
+      [ Coordinates::HORIZONTAL,
+        Coordinates::VERTICAL,
+        Coordinates::ASCENDING,
+        Coordinates::REVERSE_HORIZONTAL,
+        Coordinates::REVERSE_VERTICAL,
+        Coordinates::REVERSE_ASCENDING,
+        Coordinates::REVERSE_DESCENDING ]
+    end
+
     def find_word(word)
-      [[4, 0], [4, 1], [4, 2], [4, 3], [4, 4]]
+      (0 ... @grid.column_count).each do |column|
+        (0 ... @grid.row_count).each do |row|
+          all_directions.each do |direction|
+            coordinates = coordinate_list(column, row, word.length, direction)
+            if word_matches_coordinate_list?(coordinates)
+              return coordinates
+            end
+          end
+        end
+      end
+      nil
     end
   end
 end

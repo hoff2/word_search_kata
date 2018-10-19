@@ -30,6 +30,12 @@ class TestSearch < MiniTest::Test
   def test_can_search_whole_grid_for_word
     assert_equal(
       [[4, 0], [4, 1], [4, 2], [4, 3], [4, 4]],
-      @search.find_word("EJOTY"))
+      @search.find_word("EJOTY")
+    )
+    assert_equal(
+      [[0, 3], [1, 3], [2, 3], [3, 3]],
+      @search.find_word("PQRS")
+    )
+    assert_nil(@search.find_word("WORD"))
   end
 end
