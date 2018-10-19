@@ -4,6 +4,16 @@ module WordSearch
       @grid = rows
     end
 
+    def row_count
+      @grid.count
+    end
+
+    def column_count
+      # making the assumption that all rows provided
+      # are the same length
+      @grid[0].count
+    end
+
     def letter_at(column, row)
       @grid[row][column]
     end

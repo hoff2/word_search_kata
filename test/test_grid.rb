@@ -22,4 +22,9 @@ class TestGrid < Minitest::Test
     assert(@grid.letter_match_at?('U', 0, 4))
     refute(@grid.letter_match_at?('U', 0, 0))
   end
+
+  def test_can_return_size
+    assert_equal(5, @grid.row_count)
+    assert_equal(5, @grid.column_count)
+  end
 end
