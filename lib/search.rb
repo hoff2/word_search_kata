@@ -1,20 +1,15 @@
 require './lib/coordinates.rb'
+require './lib/grid.rb'
 
 module WordSearch
   class Search
     include Coordinates
 
     def self.from_file_contents(contents)
-      grid = Grid.new(
-        [
-          %w[A B C D E],
-          %w[F G H I J],
-          %w[K L M N O],
-          %w[P Q R S T],
-          %w[U V W X Y]
-        ]
-      )
-      new(%w[EJOTY PQRS], grid)
+      lines = contents.split("\n")
+      words = lines[0].split(',')
+      rows = lines.drop(1).map { |row| row.split(',') }
+      new(words, Grid.new(rows))
     end
 
     def initialize(words, grid)

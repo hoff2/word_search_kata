@@ -52,16 +52,29 @@ class TestSearch < MiniTest::Test
   def test_can_initialize_from_file_contents
     from_file = Search.from_file_contents(
       "EJOTY,PQRS\n" +
-        "A,B,C,D,E" +
-        "F,G,H,I,J" +
-        "K,L,M,N,O" +
-        "P,Q,R,S,T" +
-        "U,V,W,X,Y"
+        "A,B,C,D,E\n" +
+        "F,G,H,I,J\n" +
+        "K,L,M,N,O\n" +
+        "P,Q,R,S,T\n" +
+        "U,V,W,X,Y\n"
     )
     assert_equal(@search.words, from_file.words)
     assert_equal(
       @search.word_locations_report,
       from_file.word_locations_report
+    )
+    from_file2 = Search.from_file_contents(
+      "KGC,JNRV\n" +
+        "U,V,W,X,Y\n" +
+        "P,Q,R,S,T\n" +
+        "K,L,M,N,O\n" +
+        "F,G,H,I,J\n" +
+        "A,B,C,D,E\n"
+    )
+    refute_equal(@search.words, from_file2.words)
+    refute_equal(
+      @search.word_locations_report,
+      from_file2.word_locations_report
     )
   end
 end
