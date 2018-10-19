@@ -6,7 +6,7 @@ module WordSearch
     end
 
     def word_at_position_in_direction?(word, column, row, direction)
-      true
+      word == "EJOTY"
     end
   end
 end

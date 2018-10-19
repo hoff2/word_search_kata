@@ -16,6 +16,12 @@ class TestSearch < MiniTest::Test
   end
 
   def test_can_tell_if_word_is_at_position_in_direction
-    @search.word_at_position_in_direction?("EJOTY", 4, 0, Coordinates::VERTICAL)
+    assert(@search.word_at_position_in_direction?(
+      "EJOTY", 4, 0, Coordinates::VERTICAL))
+  end
+
+  def test_can_tell_if_word_is_not_at_position_in_direction
+    refute(@search.word_at_position_in_direction?(
+      "WORD", 4, 0, Coordinates::VERTICAL))
   end
 end
