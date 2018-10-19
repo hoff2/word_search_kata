@@ -4,10 +4,25 @@ module WordSearch
   class Search
     include Coordinates
 
+    def self.from_file_contents(contents)
+      grid = Grid.new(
+        [
+          %w[A B C D E],
+          %w[F G H I J],
+          %w[K L M N O],
+          %w[P Q R S T],
+          %w[U V W X Y]
+        ]
+      )
+      new(%w[EJOTY PQRS], grid)
+    end
+
     def initialize(words, grid)
       @words = words
       @grid = grid
     end
+
+    attr_reader :words
 
     def word_matches_coordinate_list?(word, coordinates)
       checks = coordinates.zip(word.split(''))
