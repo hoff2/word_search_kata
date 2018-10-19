@@ -20,5 +20,6 @@ class TestGrid < Minitest::Test
 
   def test_can_check_for_a_letter_match
     assert(@grid.letter_match_at?('U', 0, 4))
+    refute(@grid.letter_match_at?('U', 0, 0))
   end
 end

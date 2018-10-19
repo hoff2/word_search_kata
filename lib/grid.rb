@@ -9,7 +9,7 @@ module WordSearch
     end
 
     def letter_match_at?(letter, column, row)
-      letter == 'U'
+      letter_at(column, row) == letter
     end
   end
 end
