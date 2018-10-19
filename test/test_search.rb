@@ -12,12 +12,14 @@ class TestSearch < MiniTest::Test
       %w(P Q R S T),
       %w(U V W X Y)
     ])
-    @search = Search.new(%w(EJOTY), @grid)
+    @search = Search.new(%w(EJOTY), grid)
   end
 
   def test_can_tell_if_word_is_at_position_in_direction
     assert(@search.word_at_position_in_direction?(
       "EJOTY", 4, 0, Coordinates::VERTICAL))
+    assert(@search.word_at_position_in_direction?(
+      "PQRS", 0, 3, Coordinates::HORIZONTAL))
   end
 
   def test_can_tell_if_word_is_not_at_position_in_direction
