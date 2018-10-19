@@ -17,4 +17,8 @@ class TestGrid < Minitest::Test
   def test_indexing_grid_by_column_and_row
     assert_equal('U', @grid.letter_at(0, 4))
   end
+
+  def test_can_check_for_a_letter_match
+    assert(@grid.letter_match_at?('U', 0, 4))
+  end
 end
