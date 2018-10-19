@@ -17,18 +17,20 @@ module WordSearch
     end
 
     def all_directions
-      [ Coordinates::HORIZONTAL,
-        Coordinates::VERTICAL,
-        Coordinates::ASCENDING,
-        Coordinates::REVERSE_HORIZONTAL,
-        Coordinates::REVERSE_VERTICAL,
-        Coordinates::REVERSE_ASCENDING,
-        Coordinates::REVERSE_DESCENDING ]
+      [
+        HORIZONTAL,
+        VERTICAL,
+        ASCENDING,
+        REVERSE_HORIZONTAL,
+        REVERSE_VERTICAL,
+        REVERSE_ASCENDING,
+        REVERSE_DESCENDING
+      ]
     end
 
     def find_word(word)
-      (0 ... @grid.column_count).each do |column|
-        (0 ... @grid.row_count).each do |row|
+      (0...@grid.column_count).each do |column|
+        (0...@grid.row_count).each do |row|
           all_directions.each do |direction|
             coordinates = coordinate_list(column, row, direction, word.length)
             if word_matches_coordinate_list?(word, coordinates)

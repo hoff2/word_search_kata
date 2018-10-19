@@ -19,8 +19,8 @@ module WordSearch
     end
 
     def letter_match_at?(letter, column, row)
-      if (0 ... column_count).cover?(column) &&
-          (0 ... row_count).cover?(row)
+      if (0...column_count).cover?(column) &&
+         (0...row_count).cover?(row)
         letter_at(column, row) == letter
       else
         false
