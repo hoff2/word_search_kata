@@ -41,5 +41,17 @@ module WordSearch
       end
       nil
     end
+
+    def word_locations_report
+      @words.map do |word|
+        result = find_word(word)
+        result_str = if result.nil?
+                       ''
+                     else
+                       display_coordinate_list(result)
+                     end
+        "#{word}: #{result_str}".strip
+      end.join("\n")
+    end
   end
 end

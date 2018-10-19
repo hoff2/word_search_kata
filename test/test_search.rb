@@ -14,7 +14,7 @@ class TestSearch < MiniTest::Test
         %w[U V W X Y]
       ]
     )
-    @search = Search.new(%w[EJOTY], grid)
+    @search = Search.new(%w[EJOTY PQRS], grid)
   end
 
   def test_can_check_coordinate_list_for_word
@@ -39,5 +39,13 @@ class TestSearch < MiniTest::Test
       @search.find_word('PQRS')
     )
     assert_nil(@search.find_word('WORD'))
+  end
+
+  def test_generates_report_of_all_word_locations
+    assert_equal(
+      "EJOTY: (4,0),(4,1),(4,2),(4,3),(4,4)\n" +
+        "PQRS: (0,3),(1,3),(2,3),(3,3)",
+      @search.word_locations_report
+    )
   end
 end

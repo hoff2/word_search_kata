@@ -10,7 +10,7 @@ module WordSearch
     REVERSE_ASCENDING = [-1, 1].freeze
 
     def coordinate_list(start_column, start_row, direction, length)
-      if length == 0
+      if length.zero?
         []
       else
         [[start_column, start_row]] +
@@ -21,6 +21,12 @@ module WordSearch
             length - 1
           )
       end
+    end
+
+    def display_coordinate_list(list)
+      list.map do |coordinate|
+        "(#{coordinate[0]},#{coordinate[1]})"
+      end.join(',')
     end
   end
 end

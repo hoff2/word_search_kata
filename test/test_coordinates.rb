@@ -62,4 +62,11 @@ class TestCoordinates < Minitest::Test
       coordinate_list(3, 1, REVERSE_ASCENDING, 4)
     )
   end
+
+  def test_display_coordinate_list_for_results
+    assert_equal(
+      '(3,1),(2,2),(1,3),(0,4)',
+      display_coordinate_list(coordinate_list(3, 1, REVERSE_ASCENDING, 4))
+    )
+  end
 end
