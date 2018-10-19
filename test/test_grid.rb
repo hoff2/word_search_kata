@@ -23,6 +23,11 @@ class TestGrid < Minitest::Test
     refute(@grid.letter_match_at?('U', 0, 0))
   end
 
+  def test_letter_match_check_returns_false_if_coordinates_invalid
+    refute(@grid.letter_match_at?('U', 0, 5))
+    refute(@grid.letter_match_at?('A', -1, -1))
+  end
+
   def test_can_return_size
     assert_equal(5, @grid.row_count)
     assert_equal(5, @grid.column_count)
