@@ -30,8 +30,8 @@ module WordSearch
       (0 ... @grid.column_count).each do |column|
         (0 ... @grid.row_count).each do |row|
           all_directions.each do |direction|
-            coordinates = coordinate_list(column, row, word.length, direction)
-            if word_matches_coordinate_list?(coordinates)
+            coordinates = coordinate_list(column, row, direction, word.length)
+            if word_matches_coordinate_list?(word, coordinates)
               return coordinates
             end
           end
