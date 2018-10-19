@@ -44,7 +44,7 @@ class TestSearch < MiniTest::Test
   def test_generates_report_of_all_word_locations
     assert_equal(
       "EJOTY: (4,0),(4,1),(4,2),(4,3),(4,4)\n" +
-        "PQRS: (0,3),(1,3),(2,3),(3,3)",
+        "PQRS: (0,3),(1,3),(2,3),(3,3)\n",
       @search.word_locations_report
     )
   end

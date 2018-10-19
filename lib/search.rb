@@ -50,8 +50,8 @@ module WordSearch
                      else
                        display_coordinate_list(result)
                      end
-        "#{word}: #{result_str}".strip
-      end.join("\n")
+        "#{word}: #{result_str}".strip + "\n"
+      end.join
     end
   end
 end
